@@ -41,13 +41,13 @@ két tanulság: felhasználók viselkedése, ill. mennyire jók a feladványok
 
  - [ ] bolgba sztori + link oda-vissza
 
- - [ ] ooo.py: `['kék', 'piros', 'sárga', 'megcsinál']` -- ez miért 'sárga'?
+ - [ ] ooo.py: `['kék', 'piros', 'sárga', 'megcsinál']` -- ez miért *sárga*?
 
  - [ ] jobb embeddinget csinálni
 
- - [ ] kkkt-csináló:\
-1. 3 ua mellé mondjon egy 4-diket, ami a kkkt lesz\
-2. 2 ua + egy kkkt mellé mondjon még egy beleillőt :arrow_right: "küldhetem másnak"\
+ - [ ] kkkt-csináló:
+1. 3 ua mellé mondjon egy 4-diket, ami a kkkt lesz
+2. 2 ua + egy kkkt mellé mondjon még egy beleillőt :arrow_right: "küldhetem másnak"
 3. feladat egy szó megadásával :arrow_right: "magamnak"
 
  - [ ] daemon -- válaszidő most: 2s
