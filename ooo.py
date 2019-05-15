@@ -18,10 +18,6 @@ puzzles = [
   ['zongorázik', 'hegedül', 'fuvolázik', 'főz']
 ]
 
-# XXX jobb embeddinget csinálni
-# XXX ragozott szavak vannak az embeddingben vagy lemmák?
-# XXX mi történik az OOV szavakkal?
-
 for p in puzzles:
   res = model.doesnt_match( p )
   print( res )

@@ -5,9 +5,7 @@ project @ [MTA NYTI](http://www.nytud.hu).
 
 This is a kind of "odd one out" game base on word embeddings.
 
-XXX hogy működik...
-
-XXX hogy kell használni...
+*** [TODO](TODO.md) ***
 
 Based on [Márton Makrai's](https://github.com/makrai)
 [Hungarian embedding demo](https://github.com/makrai/hungarian-embedding-demo).
