@@ -1,4 +1,16 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/makrai/hungarian-embedding-demo/master)
+# kakukktojás
 
-# hungarian-embedding-demo
-A demo of Hungarian word embeddings.
+Source code for the [kakukktojás](http://www.nytud.hu/kakukktojas)
+project @ [MTA NYTI](http://www.nytud.hu).
+
+This is a kind of "odd one out" game base on word embeddings.
+
+XXX hogy működik...
+
+XXX hogy kell használni...
+
+Based on [Márton Makrai's](https://github.com/makrai)
+[Hungarian embedding demo](https://github.com/makrai/hungarian-embedding-demo).
+
+Thank you, Marci, for this fork. :)
+
