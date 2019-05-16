@@ -26,9 +26,11 @@ két tanulság: felhasználók viselkedése, ill. mennyire jók a feladványok
 
  - [ ] logó: ilyesmi: ooOo
 
- - [ ] ragozott szavak vannak az embeddingben vagy lemmák?
+ - [ ] ragozott szavak vannak az embeddingben vagy lemmák? --
+*azt* alak van benne!
 
- - [ ] mi történik az OOV szavakkal?
+ - [ ] mi történik az OOV szavakkal? --
+pl. *megragasztjuk*
 
  - [ ] hogy működik :arrow_right: README.md
 
