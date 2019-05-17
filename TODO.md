@@ -20,7 +20,10 @@ ilyesmi...
 két tanulság: felhasználók viselkedése, ill. mennyire jók a feladványok
 (= mennyire lehet embeddinggel jó kkkt feladatokat csinálni)!
 
- - [ ] melyik gépre lehet tenni?
+ - [ ] webes eszköz hozzá: _flask_ (Iván tippje)
+
+ - [ ] melyik gépre lehet tenni? fejl: oli -- éles: juni +
+Iván segít a dockeresítésben (az jó, mert pl. nem lehet kitörni belőle)
 
  - [ ] http://www.nytud.hu/kakukktojas URL-t intézni
 
