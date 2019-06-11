@@ -58,10 +58,12 @@ def solve_( s ):
     ooo = model.doesnt_match( true_words )
 
   res = (
+    '<html><head><title>odd one out by embedding</title></head><body><div style="width: 320px">' +
     ', '.join( words ) + '<br/>' +
     ( ( ', '.join( true_words ) + '<br/>' ) if words != true_words else "" ) + 
     '<i>' + '<br/>'.join( msg ) + '</i>' +
-    ( ( '<br/><br/><b style="font-size: 200%">&rarr; ' + ooo + '</b>' ) if ooo else '' )
+    ( ( '<br/><br/><b style="font-size: 200%">&rarr; ' + ooo + '</b>' ) if ooo else '' ) +
+    '</div></body></html>'
   )
 
   return( res )
