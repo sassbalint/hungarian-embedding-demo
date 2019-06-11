@@ -16,6 +16,10 @@ Thank you, Marci, for this fork. :)
 python3 ./ooo.py
 ```
 
+or
+
+http://odd-one-out-basic.herokuapp.com/kutya,macska,egér
+
 ## todo
 
 *** [TODO](TODO.md) ***
