@@ -2,19 +2,26 @@
 
 from flask import Flask
 from flask_cors import CORS, cross_origin
+from gensim.models import KeyedVectors
+import os
+import psycopg2
+import sys
+
 app = Flask( __name__ )
 cors = CORS( app )
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-from gensim.models import KeyedVectors
-
 model = KeyedVectors.load('data/glove-hu_152.gensim')
+
+# ez itten a postgres csatlakozás :)
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+cur = conn.cursor()
 
 puzzles = [
   ['vacsora', 'gabona', 'reggeli', 'ebéd'],
   ['tengeri', 'ipari', 'technológiai', 'hősies'],
   ['fürdőszoba', 'szekrény', 'tetőtér', 'erkély', 'pálya', 'WC'],
-  #['kék', 'piros', 'sárga', 'megcsinál'], # XXX ez miért 'sárga'?
   ['kék', 'piros', 'sárga', 'csinál'],
   ['zongorázik', 'hegedül', 'fuvolázik', 'főz']
 ]
@@ -22,12 +29,13 @@ puzzles = [
 ERR_MIN_THREE_TRUE = 'Adjon meg legalább három (gyakori) szót, vesszővel elválasztva. :)'
 #ERR_MIN_THREE_TRUE = 'Please, give at least three (frequent) words separated by commas. :)'
 VERBOSE_COMMAND = 'verbose'
+GETID_COMMAND = 'getid'
 
 @app.route( '/<string:s>', methods = ['GET','POST'] )
 @cross_origin()
-def solve_( s ):
+def process( s ):
   """
-  Solves an 'odd one out' puzzle using a word embedding.
+  Solve an 'odd one out' puzzle using a word embedding.
   :param s: words delimited by comma.
   :returns: the word which is the 'odd one out'.
   """
@@ -35,12 +43,29 @@ def solve_( s ):
   msg = [] # message
 
   words_set = set( map( str.strip, s.split( "," ) ) )
+
   VERBOSE = False
   if VERBOSE_COMMAND in words_set:
     VERBOSE = True
     words_set.remove( VERBOSE_COMMAND ) 
     msg.append( 'Szószátyár (' + VERBOSE_COMMAND + ') mód bekapcs.' )
-  words = sorted( list( words_set ) ) # magyar szerini sorrend kell! XXX
+  words = sorted( list( words_set ) ) # magyar szerini sorrend kellene! XXX
+
+  GETID = None
+  for w in words_set:
+    if w.startswith( GETID_COMMAND ): # XXX regex+set: lehet egyszerűbben?
+      GETID = w[len(GETID_COMMAND):]
+      try:
+        cur.execute( 'SELECT puzzle FROM ooo WHERE id = {0};'.format( GETID ) )
+        words = cur.fetchone()[0].split( "," ) # XXX jó ez? elég ez?
+          # [0] -- mert a(z 1 elemű) tuple első eleme kell :)
+        # az összes többi megadott szót kukázzuk :)
+        msg.append( 'Kakukktojás #{0}.'.format( GETID ) )
+      except Exception as e:
+        #msg.append( 'exc[{0}]'.format( str(e) ) ) # exception info!
+        msg.append( '#{0} feladat nincsen.'.format( GETID ) )
+        words = []
+      break
 
   ooo = "" # odd-one-out word (result)
 

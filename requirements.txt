@@ -2,3 +2,4 @@ Flask
 flask-cors
 gunicorn
 gensim==3.*
+psycopg2-binary
