@@ -1,5 +1,10 @@
 kkkt = kakukktojás
 
+# TODO (current)
+
+ - [ ] **adatbázis** felhúzása, feladatok adatbázisban tárolása, előszedése!
+XXX XXX XXX
+
 # TODO (short term)
 
  - [ ] **UI design:** rögtön jöjjön ki egy fela (a sorszámával)\
@@ -14,31 +19,33 @@ plusz: visszajelzési lehetőség: rendben volt vs rossz a feladat +
 textbox-ba komment + 'ezt gondolom' gomb
 
  - [ ] **nehézség:** 1/2/3 -- x, x/2 x/5 távolságra van a kkkt a többitől,
-ilyesmi...
+ilyesmi... + kikutatni, hogy mifélét bír jól megoldani és mifélét nem! :)
 
  - [ ] **log**olni mindent:\
 két tanulság: felhasználók viselkedése, ill. mennyire jók a feladványok
 (= mennyire lehet embeddinggel jó kkkt feladatokat csinálni)!
 
- - [ ] webes eszköz hozzá: _flask_ (Iván tippje)
-
- - [ ] melyik gépre lehet tenni? fejl: oli -- éles: juni +
-Iván segít a dockeresítésben (az jó, mert pl. nem lehet kitörni belőle)
-
- - [ ] http://www.nytud.hu/kakukktojas URL-t intézni
+ - [ ] hogy működik :arrow_right: README.md
 
  - [ ] logó: ilyesmi: ooOo
 
- - [ ] ragozott szavak vannak az embeddingben vagy lemmák? --
-*azt* alak van benne!
+ - [ ] `http://www.nytud.hu/kakukktojas` URL-t intézni
 
- - [ ] mi történik az OOV szavakkal? --
-pl. *megragasztjuk*
+# INFO
 
- - [ ] hogy működik :arrow_right: README.md
+ - [ ] az **embedding** milyensége\
+ragozott szavak akadnak benne: krumplit, azt, fogja, embert
 
- - [ ] hogy kell használni :arrow_right: README.md
-(jelenleg: `python3 ooo.py`)
+ - [ ] *ami rossz:*
+paradicsom,paprika,répa,alma :arrow_right: paradicsom;
+kutya,macska,disznó,farkas :arrow_right: disznó;
+kutya,cica,disznó,farkas :arrow_right: cica;
+levél,fa,virág,rózsaszín :arrow_right: levél (Máty. Sz.) -- sztem a 2 jelentése miatt!
+
+ - [ ] *ami jó:*
+növény,fa,virág,rózsaszín :arrow_right: rózsaszín (ez már jó!);
+Tibor,Gábor,Péter,Noémi :arrow_right: Noémi;
+alma,körte,padlizsán,szőlő :arrow_right: padlizsán (Szab. E.)
 
 # TODO (long term)
 
@@ -46,18 +53,31 @@ pl. *megragasztjuk*
 
  - [ ] bolgba sztori + link oda-vissza
 
- - [ ] ooo.py: `['kék', 'piros', 'sárga', 'megcsinál']` -- ez miért *sárga*?
-
- - [ ] jobb embeddinget csinálni
-
  - [ ] kkkt-csináló:
 1. 3 ua mellé mondjon egy 4-diket, ami a kkkt lesz
 2. 2 ua + egy kkkt mellé mondjon még egy beleillőt :arrow_right: "küldhetem másnak"
 3. feladat egy szó megadásával :arrow_right: "magamnak"
+4. mind a 4 (vagy több) szót adhassam meg én :) + ilyenkor ellenőrzés kell,
+hogy jól oldja-e meg, és ha igen, csak akkor menjen az adatbázisba! :)
+
+ - [ ] jobb embeddinget csinálni, nagyobb korpuszból?
+
+ - [ ] OOV szavak kezelése
+jelenleg az OOV szavakkal nem tud mit kezdeni, ki kell hagyni őket!
+sajnos csomó minden nincs benne: megragasztjuk, nyaklánc, fülbevaló, kantár
+kék,piros,sárga,megcsinál :arrow_right: sárga (mert OOV!)
 
  - [ ] daemon -- válaszidő most: 2s
 
 # DONE
+
+ - [x] hogy kell használni :arrow_right: README.md
+
+ - [x] deploy on _heroku_! :)
+-- "fejl: oli + éles: juni + Iván segít a dockeresítésben" _helyett_
+
+ - [x] _flask_ webapp kész: [`odd-one-out-basic.py`](odd-one-out-basic.py)
+-- Iván tanácsára használom a flask-et! :)
 
  - [x] basic script: [`ooo.py`](ooo.py)
 
