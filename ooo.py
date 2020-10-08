@@ -20,5 +20,5 @@ puzzles = [
 
 for p in puzzles:
   res = model.doesnt_match( p )
-  print( res )
+  print( p, '->', res )
 
